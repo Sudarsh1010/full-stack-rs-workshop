@@ -1,4 +1,4 @@
-use actix_web::get;
+use actix_web::{HttpResponse, get};
 
 #[get("/")]
 async fn hello_world() -> &'static str {
@@ -15,4 +15,11 @@ async fn version(db: actix_web::web::Data<sqlx::PgPool>) -> String {
         Ok(version) => version,
         Err(e) => format!("Error: {:?}", e),
     }
+}
+
+#[get("/health")]
+async fn health() -> HttpResponse {
+    HttpResponse::Ok()
+        .append_header(("version", "0.0.1"))
+        .finish()
 }

@@ -1,10 +1,10 @@
 [package]
 name = "api-shuttle"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 
 [dependencies]
-actix-web = "4.3.1"
+actix-web = "4.11.0"
 shuttle-actix-web = "0.55.0"
 shuttle-runtime = "0.55.0"
 tokio = "1.26.0"
@@ -18,3 +18,4 @@ sqlx = { version = "0.8.6", default-features = false, features = [
   "json",
 ] }
 tracing = "0.1.41"
+api-lib = { path = "../lib" }
